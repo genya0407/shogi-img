@@ -158,9 +158,10 @@ impl Generator {
             CoordinateStyle::DrawCoordinates => true,
             CoordinateStyle::None => false,
         };
-        let font =
-            Font::try_from_bytes(include_bytes!("./data/fonts/MoralerspaceNeon-Regular.ttf"))
-                .expect("font should be loaded");
+        let font = Font::try_from_bytes(include_bytes!(
+            "./data/fonts/MoralerspaceNeon-Regular.subset.ttf"
+        ))
+        .expect("font should be loaded");
         let highlight = match highlight_square {
             HighlightSquare::LastMoveTo => Some(RgbaImage::from_pixel(
                 55,
